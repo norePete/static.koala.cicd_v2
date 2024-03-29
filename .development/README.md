@@ -1,13 +1,21 @@
 # Astro with Tailwind
 
+This project was created with
 ```sh
 npm create astro@latest -- --template with-tailwindcss
 ```
+To build this project run 
+```sh
+npm run build
+```
+Building will move static pages from .development/dist/ to ./ 
+This is because the ci/cd pipeline deploys directly to public_html
+on our production server, which means index.html and other pages need 
+to be found at the root of this project instead of in /dist/ or any other subfolders
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
-
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+To run a hot reloading development server run 
+```sh
+npm run dev
+```
+and modify files in .development/src/
