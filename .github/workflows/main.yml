@@ -15,3 +15,8 @@ jobs:
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
           server-dir: /
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/astro/**
