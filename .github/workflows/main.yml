@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Latest Code
+        uses: actions/checkout@v3
+      - name: Sync Files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ftp.1228247.xyz
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
+          server-dir: /
