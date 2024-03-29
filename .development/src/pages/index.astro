@@ -20,5 +20,14 @@ import ConfettiButton from '../components/ConfettiButton.astro';
 			<ConfettiButton>Tailwind Button in Astro!</ConfettiButton>
 			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
 		</div>
+        <div id="parent-div">Target here</div>
+
+        <button hx-post="/partials/clicked/"
+          hx-trigger="click"
+          hx-target="#parent-div"
+          hx-swap="innerHTML"
+        >
+            Click Me!
+        </button>
 	</body>
 </html>
