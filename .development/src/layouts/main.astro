@@ -1,5 +1,5 @@
 ---
-const { content } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -10,7 +10,7 @@ const { content } = Astro.props;
         <script src="https://unpkg.com/htmx.org@1.9.6"
           integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
           crossorigin="anonymous"></script>
-		<title>{content.title}</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot />

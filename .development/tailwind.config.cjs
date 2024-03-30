@@ -3,6 +3,9 @@ module.exports = {
 	theme: {
 		extend: {
         'regal-blue': '#243c5a',
+        transitionDuration: {
+        '2000': '2000ms',
+          },
         },
 	},
 	plugins: [],
