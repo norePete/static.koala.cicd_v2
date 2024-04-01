@@ -3,12 +3,6 @@ const { image, width, height, messagePipe } = Astro.props;
 import { suid } from '../libs/utils';
 const uid = suid()
 const uidCanvas = suid()
-import {
-  BackgroundImage,
-  ImageSupportDetection,
-} from "astro-imagetools/components";
-
-
 ---
 <div id="uuidCanvasParent" 
     data-uid={uid}
@@ -22,15 +16,10 @@ import {
 
 
 
-    <div class="bg-[url('../images/cyberpunk.jpg')] bg-cover opacity-30 w-full h-full flex flex-col -z-1 absolute top-0 left-0"></div>
- <!--   <div class="opacity-30 w-full h-full flex flex-col -z-1 absolute top-0 left-0">
-        <BackgroundImage
-            src="/images/cyberpunk.jpg"
-            backgroundSize="cover"
-        >
-        </BackgroundImage>
+    <!--<div class="bg-[url('../images/cyberpunk.jpg')] bg-cover opacity-30 w-full h-full flex flex-col -z-1 absolute top-0 left-0"></div>-->
+    <div class="overflow-hidden opacity-30 w-full h-full flex flex-col -z-1 absolute top-0 left-0">
+    <img src="/images/phone.jpg">
     </div>
-    -->
     <div class="bg-transparent w-full h-full flex flex-col -z-2 absolute top-0 left-0">
     <slot />
     </div>
