@@ -135,9 +135,9 @@ async function on(indices, messagePipe) {
     const image_data = global[messagePipe].ctx.getImageData(0, 0, global[messagePipe].canvas.width, global[messagePipe].canvas.height);
     const data = image_data.data;
     for (let i = 0; i < indices.length; i++) {
-        data[indices[i]] = 255;
-        data[indices[i] + 1] = 255;
-        data[indices[i] + 2] = 255;
+        data[indices[i]] = 35;
+        data[indices[i] + 1] = 35;
+        data[indices[i] + 2] = 35;
     }
     global[messagePipe].ctx.putImageData(image_data, 0, 0);
 }
@@ -153,6 +153,16 @@ async function off(indices, messagePipe) {
     global[messagePipe].ctx.putImageData(image_data_reset, 0, 0);
 }
 
+async function dark(indices, messagePipe) {
+    const image_data_reset = global[messagePipe].ctx.getImageData(0, 0, global[messagePipe].canvas.width, global[messagePipe].canvas.height);
+    const data_reset = image_data_reset.data;
+    for (let i = 0; i < indices.length; i++) {
+        data_reset[indices[i] + 0] = 5;
+        data_reset[indices[i] + 1] = 5; 
+        data_reset[indices[i] + 2] = 5; 
+    }
+    global[messagePipe].ctx.putImageData(image_data_reset, 0, 0);
+}
 async function darken(indices, messagePipe) {
     const image_data_reset = global[messagePipe].ctx.getImageData(0, 0, global[messagePipe].canvas.width, global[messagePipe].canvas.height);
     const data_reset = image_data_reset.data;
@@ -226,12 +236,12 @@ async function mouseEffect(x, y, width, height, image_width, image_height, messa
         await on(indices, messagePipe);
         await on(indices2, messagePipe);
         await on(indices3, messagePipe);
-        await repeat(4, async () => {
+        await repeat(1, async () => {
             await sleep(100);
             //await off(indices, messagePipe);
-            await darken(indices, messagePipe);
-            await darken(indices2, messagePipe);
-            await darken(indices3, messagePipe);
+            await dark(indices, messagePipe);
+            await dark(indices2, messagePipe);
+            await dark(indices3, messagePipe);
         });
     } else {
         console.log("else");
@@ -239,6 +249,7 @@ async function mouseEffect(x, y, width, height, image_width, image_height, messa
         // write indices over original
         const image_data = global[messagePipe].ctx.getImageData(0, 0, global[messagePipe].canvas.width, global[messagePipe].canvas.height);
         const data = image_data.data;
+        console.log(data);
     }
 
 }
@@ -252,10 +263,18 @@ async function loadImage(url) {
 async function start(canvas, imageBlob, global, messagePipe) {
     global[messagePipe].ctx = global[messagePipe].canvas.getContext("2d");
     const bitmap = await createImageBitmap(imageBlob);
-
     global[messagePipe].ctx.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height, 0, 0, global[messagePipe].canvas.width, global[messagePipe].canvas.height);
     const image_data = global[messagePipe].ctx.getImageData(0, 0, global[messagePipe].canvas.width, global[messagePipe].canvas.height);
-    const data = image_data.data;
+    const data = image_data.data 
     global[messagePipe].original = [...data];
+
+    const image_data_black = global[messagePipe].ctx.getImageData(0, 0, global[messagePipe].canvas.width, global[messagePipe].canvas.height);
+    const data_black = image_data_black.data;
+    for (let i = 0; i < data_black.length; i += 4) {
+        data_black[i] = 0;
+        data_black[i + 1] = 0;
+        data_black[i + 2] = 0;
+    }
+    global[messagePipe].ctx.putImageData(image_data_black, 0, 0);
 }
 
