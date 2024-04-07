@@ -1,0 +1,104 @@
+---
+// Component Imports
+import ConfettiButton from '../components/ConfettiButton.astro';
+import Layout from '../layouts/main.astro';
+import Canvas from '../components/Canvas.astro';
+---
+
+<Layout title="1228247">
+<script id="worker" is:inline src="/utils/workerCanvas.js"></script>
+
+    <div class="w-full flex flex-col bg-black">
+        <div class="bg-black h-screen w-full flex justify-center">
+            <div class="md:m-3 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg w-full flex flex-col">
+                <Canvas image="/images/blacktriangle.webp" messagePipe="2" width=320 height=320>
+                    <div class="bg-transparent flex flex-shrink flex-col md:flex-row items-center">
+                            <ConfettiButton css="hidden md:block py-2 px-4" wrapperClass="md:mb-5 md:ml-5 md:mt-5">?</ConfettiButton>
+                            <ConfettiButton 
+                            css="w-full md:w-auto text-green-500 md:text-white text-2xl md:text-lg bg-black md:bg-transparent hover:bg-purple-700 py-2 px-4" 
+                            link='https://explorer.solana.com/' 
+                            wrapperClass="w-full md:w-auto md:ml-auto md:mr-5 md:mt-5">Block Explorer</ConfettiButton>
+                            <ConfettiButton 
+                            css="w-full md:w-auto text-purple-500 md:text-white text-2xl md:text-lg bg-black md:bg-transparent hover:bg-purple-700 py-2 px-4" 
+                            link='https://phantom.app/download' 
+                            wrapperClass="w-full md:w-auto md:mr-5 md:mt-5">download Phantom</ConfettiButton>
+                    </div>
+                    <div class="bg-transparent w-full flex-shrink md:flex-grow flex-row">
+                    </div>
+                    <div class="bg-transparent w-full flex flex-grow flex-row items-center justify-center">
+                        <h1 class="text-7xl md:text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">Virtual NzD</h1>
+                    </div>
+                    <div class="bg-transparent w-full flex flex-shrink flex-row items-center justify-center">
+                    </div>
+                    <div class="bg-transparent w-full flex flex-shrink flex-col md:flex-row items-center justify-center">
+                            <ConfettiButton 
+                            link='https://solana.com/docs' 
+                            css="w-full md:w-auto hover:bg-purple-700 bg-black py-6 px-10 text-2xl" 
+                            wrapperClass="w-full md:w-auto md:m-3 md:pb-8">Documentation</ConfettiButton>
+                            <ConfettiButton 
+                            link='http://1228247.xyz/gateway' 
+                            css="w-full md:w-auto bg-gradient-to-b hover:bg-gradient-to-t from-green-500 to-violet-500 py-6 px-24 text-4xl"
+                            wrapperClass="w-full md:w-auto">Buy</ConfettiButton>
+                            <ConfettiButton 
+                            link='https://solana.com/' 
+                            css="w-full md:w-auto hover:bg-purple-700 bg-black py-6 px-10 text-2xl" 
+                            wrapperClass="w-full md:w-auto md:m-3 md:pb-8">Solana.com</ConfettiButton>
+                    </div>
+                    <div class="bg-transparent w-full flex-shrink md:flex-grow flex-row">
+                    </div>
+                </Canvas>
+            </div>
+        </div>
+
+        <div class="bg-transparent w-full flex justify-center">
+            <div class="bg-transparent justify-center w-full items-center flex grow flex-col">
+                <div class="m-5 border-2 border-zinc-200 justify-center 2xl:w-1/3 w-full items-center flex flex-grow flex-col rounded-lg">
+                    <h3 class="m-5 text-2xl font-bold text-zinc-200">Why this exists</h3>
+                    <p class="m-5 text-lg text-justify text-zinc-200">
+                    Are you a paranoid schizophrenic? Have you already declared
+                    yourself a sovereign citizen and buried gold bars in your back yard?
+                    Me too baby, me too. But sometimes I feel like I want a bank account 
+                    that isn't at any risk of collapse. 
+                    <br/><br/>
+                    For most of my daily needs I use 
+                    cash, I rarely use my bank account. But sometimes I want to be able to 
+                    deposit my paycheck into an account without participating in the fractional 
+                    reserve banking system that has been destroying our economy. That's why 
+                    virtual nzd exists, deposit cash or pay with a credit card and hold your 
+                    own virtual dollars in a decentralized banking system denominated in 
+                    new zealand dollars. This is not a stable coin, it is an asymmetric asset
+                    with a floating exchange rate. 
+                    <br/><br/>
+                    Use decentralized exchanges to convert between
+                    virtual nzd and anything from Bitcoin to USDT, the echange rate on these exchanges 
+                    is set automatically by the supply and demand curves for each currency, and in some cases 
+                    you may be able to get a better deal buying through an exchange compared to buying through 
+                    this payment gateway. We will always charge exactly $1 for 1 nzd. We only provide a fiat
+                    on-ramp, we DO NOT provide any method of cashing back out of nzd into either cash or bank deposits, 
+                    the virtual nzd is not intended to be a separate asset class to physical cash. As such 
+                    we do not try to peg the cash out exchange rate to $1, and discourage holding this asset 
+                    in the hopes of making money via speculation. 
+                    <br/><br/>
+                    If you do need to cash out you can use any centralized
+                    exchange that offers nzd deposits, or via an over-the-counter transactions with a private buyer.
+                    <br/><br/>
+                    The long term goal of this asset class is to kill the Australian banks suckling on our economy.
+                    <br/><br/>
+                    Fuck those ozzy cunts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<!-- 
+<div id="parent-div" class="opacity-100 transition-all duration-2000">Target here</div>
+<button class="opacity-100 transition-all duration-2000" hx-post="/partials/clicked/"
+hx-trigger="click"
+hx-target="#parent-div"
+hx-swap="innerHTML"
+>
+Click Me!
+</button>
+-->
